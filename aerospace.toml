@@ -40,23 +40,26 @@ on-mode-changed = []
 # rearrange the layout. Regex is matched against the monitor's name
 # reported by `aerospace list-monitors`.
 #
-#   1       → laptop (Built-in)
-#   2, 3    → external LG (any), fallback laptop
-#   4–9     → external LG (any), fallback laptop
+# With 2 identical LGs plugged in, AeroSpace disambiguates them as
+# "LG ULTRAWIDE (1)" and "LG ULTRAWIDE (2)". With only 1 LG, the
+# name is just "LG ULTRAWIDE" — so the fallback chain works for all
+# connection counts:
 #
-# With 2 external monitors plugged in, all non-Chrome workspaces
-# currently collapse onto the first matching LG. Tune later if
-# you want the 4–9 group on the other LG specifically.
+#   3 monitors (laptop + 2 LG): disambiguators match, ws 2-3 go on
+#     one LG and ws 4-9 on the other.
+#   2 monitors (laptop + 1 LG): disambiguators miss, 'LG' catches
+#     all non-Chrome workspaces onto the single LG.
+#   1 monitor (laptop only): everything falls back to 'Built-in'.
 [workspace-to-monitor-force-assignment]
     1 = 'Built-in'
-    2 = ['LG', 'Built-in']
-    3 = ['LG', 'Built-in']
-    4 = ['LG', 'Built-in']
-    5 = ['LG', 'Built-in']
-    6 = ['LG', 'Built-in']
-    7 = ['LG', 'Built-in']
-    8 = ['LG', 'Built-in']
-    9 = ['LG', 'Built-in']
+    2 = ['LG ULTRAWIDE \(1\)', 'LG', 'Built-in']
+    3 = ['LG ULTRAWIDE \(1\)', 'LG', 'Built-in']
+    4 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
+    5 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
+    6 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
+    7 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
+    8 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
+    9 = ['LG ULTRAWIDE \(2\)', 'LG', 'Built-in']
 
 [mode.main.binding]
     cmd-alt-ctrl-slash = 'layout tiles horizontal vertical'
