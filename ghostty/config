@@ -1,0 +1,17 @@
+# Ghostty config — tuned for an AeroSpace tiling workflow.
+#
+# By default cmd+t spawns a new macOS window that macOS auto-merges
+# into a tab group. AeroSpace sees that new window and tiles it,
+# producing a half-empty split. Rebinding cmd+t to new_split keeps
+# the "new tab" muscle memory but uses Ghostty's in-window splits,
+# which stay invisible to AeroSpace.
+
+keybind = super+t=new_split:right
+keybind = super+shift+t=new_split:down
+
+# Cycle through splits with cmd+[ / cmd+] (like VS Code panes)
+keybind = super+left_bracket=goto_split:previous
+keybind = super+right_bracket=goto_split:next
+
+# Close the active split (falls through to closing the window if last split)
+keybind = super+w=close_surface

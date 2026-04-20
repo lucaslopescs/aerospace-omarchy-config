@@ -66,20 +66,23 @@ ls
 ## Step 4 — Install the config files
 
 ```bash
-mkdir -p "$HOME/.config/aerospace"
+mkdir -p "$HOME/.config/aerospace" "$HOME/.config/ghostty"
 cp aerospace.toml    "$HOME/.config/aerospace/aerospace.toml"
 cp cheatsheet.html   "$HOME/.config/aerospace/cheatsheet.html"
 cp show-cheatsheet.sh "$HOME/.config/aerospace/show-cheatsheet.sh"
+cp ghostty/config    "$HOME/.config/ghostty/config"
 chmod +x "$HOME/.config/aerospace/show-cheatsheet.sh"
 ```
 
 Verify:
 
 ```bash
-ls -la "$HOME/.config/aerospace/"
+ls -la "$HOME/.config/aerospace/" "$HOME/.config/ghostty/"
 ```
 
 `show-cheatsheet.sh` should be marked executable (`-rwxr-xr-x`).
+
+The Ghostty config remaps `cmd+t` from "new native macOS window (which merges into a tab bar)" to "new in-window split" — otherwise AeroSpace tiles the invisible tab-grouped window and leaves half your screen empty. If you don't use Ghostty, you can skip copying the ghostty config.
 
 ---
 

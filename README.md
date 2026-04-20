@@ -17,6 +17,7 @@ Throughout this README, **⇪** means "hold Caps Lock."
 | `aerospace.toml` | AeroSpace config — bindings, gaps, workspace-to-monitor assignments |
 | `cheatsheet.html` | Styled keybinding reference, opens in a Chrome app window |
 | `show-cheatsheet.sh` | Launcher script for the cheatsheet (bound to ⇪K) |
+| `ghostty/config` | Ghostty companion config — remaps `cmd+t` to split (avoids fighting the tiling WM) |
 | `SETUP.md` | Step-by-step install instructions for humans or AI agents |
 
 ## Key bindings at a glance
