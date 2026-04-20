@@ -164,18 +164,26 @@ on-mode-changed = []
 if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 1'
 
-# Workspace 2 — Code
+# Workspace 2 — Code editors + Terminal
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
 run = 'move-node-to-workspace 2'
 
-# Workspace 3 — Claude + Ghostty
 [[on-window-detected]]
-if.app-id = 'com.anthropic.claudefordesktop'
-run = 'move-node-to-workspace 3'
+if.app-id = 'com.todesktop.230313mzl4w4u92'   # Cursor
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace 2'
+
+# Workspace 3 — Claude
+[[on-window-detected]]
+if.app-id = 'com.anthropic.claudefordesktop'
 run = 'move-node-to-workspace 3'
 
 # Workspace 4 — Obsidian
