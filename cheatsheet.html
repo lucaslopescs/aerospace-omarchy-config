@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AeroSpace Cheatsheet</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --surface: #1a1d24;
+    --surface-hover: #22262f;
+    --border: #2a2f3a;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --accent: #60a5fa;
+    --key-bg: #2a2f3a;
+    --key-border: #3a4050;
+    --heading: #f4a261;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  body { padding: 24px 28px; }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  h1 {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .hint {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .section h2 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--heading);
+    margin-bottom: 10px;
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+    gap: 12px;
+  }
+  .row + .row { border-top: 1px solid rgba(255,255,255,0.03); }
+  .keys {
+    display: inline-flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  kbd {
+    display: inline-block;
+    background: var(--key-bg);
+    color: var(--accent);
+    border: 1px solid var(--key-border);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 1px 6px;
+    font-family: "SF Mono", Menlo, ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .desc {
+    color: var(--text);
+    flex: 1;
+    font-size: 12.5px;
+  }
+  .span-2 { grid-column: span 2; }
+  .footer {
+    margin-top: 18px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  .footer kbd { font-size: 10px; }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>AeroSpace Cheatsheet</h1>
+    <span class="hint">press <kbd>⌘W</kbd> or <kbd>Esc</kbd> to close</span>
+  </div>
+
+  <div class="grid">
+    <div class="section">
+      <h2>Focus &amp; Move</h2>
+      <div class="row"><span class="desc">Focus direction</span><span class="keys"><kbd>alt</kbd><kbd>←↓↑→</kbd></span></div>
+      <div class="row"><span class="desc">Move window</span><span class="keys"><kbd>alt-shift</kbd><kbd>←↓↑→</kbd></span></div>
+      <div class="row"><span class="desc">Resize smaller / larger</span><span class="keys"><kbd>alt-−</kbd><kbd>alt-=</kbd></span></div>
+      <div class="row"><span class="desc">Float / tile toggle</span><span class="keys"><kbd>alt-f</kbd></span></div>
+      <div class="row"><span class="desc">Fullscreen toggle</span><span class="keys"><kbd>alt-shift-f</kbd></span></div>
+    </div>
+
+    <div class="section">
+      <h2>Layout</h2>
+      <div class="row"><span class="desc">Tiles (h ↔ v)</span><span class="keys"><kbd>alt-/</kbd></span></div>
+      <div class="row"><span class="desc">Accordion (h ↔ v)</span><span class="keys"><kbd>alt-,</kbd></span></div>
+      <div class="row"><span class="desc">Show this cheatsheet</span><span class="keys"><kbd>alt-k</kbd></span></div>
+    </div>
+
+    <div class="section">
+      <h2>Workspaces</h2>
+      <div class="row"><span class="desc">Switch to workspace N</span><span class="keys"><kbd>alt</kbd><kbd>1-9</kbd></span></div>
+      <div class="row"><span class="desc">Move window to workspace N</span><span class="keys"><kbd>alt-shift</kbd><kbd>1-9</kbd></span></div>
+      <div class="row"><span class="desc">Back to previous workspace</span><span class="keys"><kbd>alt-tab</kbd></span></div>
+      <div class="row"><span class="desc">Send workspace to next monitor</span><span class="keys"><kbd>alt-shift-tab</kbd></span></div>
+    </div>
+
+    <div class="section">
+      <h2>Service mode <span style="color:var(--muted);font-weight:400">(enter: <kbd>alt-shift-;</kbd>)</span></h2>
+      <div class="row"><span class="desc">Reload config &amp; exit</span><span class="keys"><kbd>esc</kbd></span></div>
+      <div class="row"><span class="desc">Reset (flatten) layout</span><span class="keys"><kbd>r</kbd></span></div>
+      <div class="row"><span class="desc">Float/tile toggle</span><span class="keys"><kbd>f</kbd></span></div>
+      <div class="row"><span class="desc">Close all but current</span><span class="keys"><kbd>⌫</kbd></span></div>
+      <div class="row"><span class="desc">Join window with neighbor</span><span class="keys"><kbd>alt-shift</kbd><kbd>←↓↑→</kbd></span></div>
+    </div>
+
+    <div class="section span-2">
+      <h2>App launchers</h2>
+      <div class="row"><span class="desc">Claude</span><span class="keys"><kbd>alt-a</kbd></span></div>
+      <div class="row"><span class="desc">ChatGPT</span><span class="keys"><kbd>alt-shift-a</kbd></span></div>
+      <div class="row"><span class="desc">Google Chrome</span><span class="keys"><kbd>alt-b</kbd></span></div>
+      <div class="row"><span class="desc">VS Code</span><span class="keys"><kbd>alt-c</kbd></span></div>
+      <div class="row"><span class="desc">Ghostty</span><span class="keys"><kbd>alt-t</kbd></span></div>
+      <div class="row"><span class="desc">Obsidian</span><span class="keys"><kbd>alt-o</kbd></span></div>
+      <div class="row"><span class="desc">Discord</span><span class="keys"><kbd>alt-d</kbd></span></div>
+      <div class="row"><span class="desc">Messages</span><span class="keys"><kbd>alt-m</kbd></span></div>
+      <div class="row"><span class="desc">Finder</span><span class="keys"><kbd>alt-n</kbd></span></div>
+      <div class="row"><span class="desc">Notion</span><span class="keys"><kbd>alt-shift-n</kbd></span></div>
+    </div>
+
+    <div class="section">
+      <h2>URLs <span style="color:var(--muted);font-weight:400">(new Chrome window)</span></h2>
+      <div class="row"><span class="desc">x.com</span><span class="keys"><kbd>alt-x</kbd></span></div>
+      <div class="row"><span class="desc">Gmail</span><span class="keys"><kbd>alt-g</kbd></span></div>
+      <div class="row"><span class="desc">YouTube</span><span class="keys"><kbd>alt-y</kbd></span></div>
+      <div class="row"><span class="desc">GitHub</span><span class="keys"><kbd>alt-shift-g</kbd></span></div>
+    </div>
+
+    <div class="section">
+      <h2>System Settings</h2>
+      <div class="row"><span class="desc">Wi-Fi</span><span class="keys"><kbd>alt-ctrl-w</kbd></span></div>
+      <div class="row"><span class="desc">Bluetooth</span><span class="keys"><kbd>alt-ctrl-b</kbd></span></div>
+      <div class="row"><span class="desc">Sound</span><span class="keys"><kbd>alt-ctrl-u</kbd></span></div>
+      <div class="row"><span class="desc">Displays</span><span class="keys"><kbd>alt-ctrl-d</kbd></span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Config: <kbd>~/.config/aerospace/aerospace.toml</kbd>
+  </div>
+
+  <script>
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') window.close();
+    });
+  </script>
+</body>
+</html>

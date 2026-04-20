@@ -1,0 +1,161 @@
+# AeroSpace config — minimal power-user setup
+# See: docs/superpowers/specs/2026-04-19-aerospace-config-design.md
+# Reload: enter service mode (alt-shift-;) then esc, or run `aerospace reload-config`
+
+config-version = 2
+start-at-login = true
+after-startup-command = []
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+automatically-unhide-macos-hidden-apps = false
+
+persistent-workspaces = ["1","2","3","4","5","6","7","8","9"]
+
+on-mode-changed = []
+
+[key-mapping]
+    preset = 'qwerty'
+
+[gaps]
+    inner.horizontal = 8
+    inner.vertical   = 8
+    outer.left       = 8
+    outer.right      = 8
+    outer.top        = 8
+    outer.bottom     = 8
+
+# Pin workspaces to monitors so AeroSpace never invents new ones (e.g. 10, 11)
+# when monitors connect. Indices fall back left-to-right: if monitor 3 isn't
+# connected, workspace 7 lands on monitor 2; if 2 isn't connected either, on 1.
+[workspace-to-monitor-force-assignment]
+    1 = 1
+    2 = 1
+    3 = 1
+    4 = [2, 1]
+    5 = [2, 1]
+    6 = [2, 1]
+    7 = [3, 2, 1]
+    8 = [3, 2, 1]
+    9 = [3, 2, 1]
+
+[mode.main.binding]
+    alt-slash = 'layout tiles horizontal vertical'
+    alt-comma = 'layout accordion horizontal vertical'
+
+    alt-left  = 'focus left'
+    alt-down  = 'focus down'
+    alt-up    = 'focus up'
+    alt-right = 'focus right'
+
+    alt-shift-left  = 'move left'
+    alt-shift-down  = 'move down'
+    alt-shift-up    = 'move up'
+    alt-shift-right = 'move right'
+
+    alt-minus = 'resize smart -50'
+    alt-equal = 'resize smart +50'
+
+    alt-shift-f = 'fullscreen'
+
+    # Toggle the focused window between floating and tiling
+    alt-f = 'layout floating tiling'
+
+    # Show keybindings cheatsheet (styled HTML in Chrome app window)
+    alt-k = 'exec-and-forget $HOME/.config/aerospace/show-cheatsheet.sh'
+
+    # App launchers — launch if not running, focus if already open
+    alt-a       = 'exec-and-forget open -a "Claude"'
+    alt-shift-a = 'exec-and-forget open -a "ChatGPT"'
+    alt-b       = 'exec-and-forget open -a "Google Chrome"'
+    alt-c       = 'exec-and-forget open -a "Visual Studio Code"'
+    alt-t       = 'exec-and-forget open -a "Ghostty"'
+    alt-o       = 'exec-and-forget open -a "Obsidian"'
+    alt-d       = 'exec-and-forget open -a "Discord"'
+    alt-m       = 'exec-and-forget open -a "Messages"'
+    alt-n       = 'exec-and-forget open -a "Finder"'
+    alt-shift-n = 'exec-and-forget open -a "Notion"'
+
+    # System Settings panels
+    alt-ctrl-w = 'exec-and-forget open "x-apple.systempreferences:com.apple.wifi-settings-extension"'
+    alt-ctrl-b = 'exec-and-forget open "x-apple.systempreferences:com.apple.BluetoothSettings"'
+    alt-ctrl-u = 'exec-and-forget open "x-apple.systempreferences:com.apple.Sound-Settings.extension"'
+    alt-ctrl-d = 'exec-and-forget open "x-apple.systempreferences:com.apple.Displays-Settings.extension"'
+
+    # URL launchers — open in a new Chrome window (AppleScript forces a new
+    # window even when Chrome is already running; `--new-window` gets ignored)
+    alt-x = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+        make new window
+        set URL of active tab of front window to "https://x.com"
+        activate
+    end tell' '''
+    alt-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+        make new window
+        set URL of active tab of front window to "https://mail.google.com"
+        activate
+    end tell' '''
+    alt-y = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+        make new window
+        set URL of active tab of front window to "https://youtube.com"
+        activate
+    end tell' '''
+    alt-shift-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+        make new window
+        set URL of active tab of front window to "https://github.com"
+        activate
+    end tell' '''
+
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
+    alt-7 = 'workspace 7'
+    alt-8 = 'workspace 8'
+    alt-9 = 'workspace 9'
+
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
+    alt-shift-7 = 'move-node-to-workspace 7'
+    alt-shift-8 = 'move-node-to-workspace 8'
+    alt-shift-9 = 'move-node-to-workspace 9'
+
+    alt-tab       = 'workspace-back-and-forth'
+    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    alt-shift-semicolon = 'mode service'
+
+[mode.service.binding]
+    esc       = ['reload-config', 'mode main']
+    r         = ['flatten-workspace-tree', 'mode main']
+    f         = ['layout floating tiling', 'mode main']
+    backspace = ['close-all-windows-but-current', 'mode main']
+
+    alt-shift-left  = ['join-with left',  'mode main']
+    alt-shift-down  = ['join-with down',  'mode main']
+    alt-shift-up    = ['join-with up',    'mode main']
+    alt-shift-right = ['join-with right', 'mode main']
+
+# ─────────────────────────────────────────────────────────────
+# FUTURE: auto-assign apps to workspaces
+# Find app-id via:  aerospace list-apps
+# ─────────────────────────────────────────────────────────────
+# [[on-window-detected]]
+# if.app-id = 'com.google.Chrome'
+# run = 'move-node-to-workspace 1'
+#
+# [[on-window-detected]]
+# if.app-id = 'com.microsoft.VSCode'
+# run = 'move-node-to-workspace 2'
