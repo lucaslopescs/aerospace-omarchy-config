@@ -180,7 +180,8 @@ run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 2'
+# Float Ghostty so its invisible tab-merged NSWindows don't get tiled
+run = ['layout floating tiling', 'move-node-to-workspace 2']
 
 # Workspace 3 — AI chats (Claude + ChatGPT)
 [[on-window-detected]]
