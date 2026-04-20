@@ -1,6 +1,10 @@
-# AeroSpace config — minimal power-user setup
-# See: docs/superpowers/specs/2026-04-19-aerospace-config-design.md
-# Reload: enter service mode (alt-shift-;) then esc, or run `aerospace reload-config`
+# AeroSpace config — Omarchy-style on macOS with a Hyper key
+#
+# Modifier convention:
+#   - Caps Lock is remapped by Hyperkey.app to Cmd+Ctrl+Opt (3-modifier Hyper)
+#   - Bindings written `cmd-alt-ctrl-<key>`      = Caps + <key>
+#   - Bindings written `cmd-alt-ctrl-shift-<key>` = Caps + Shift + <key>
+#   - Reload: Caps+Shift+; → esc, or `aerospace reload-config`
 
 config-version = 2
 start-at-login = true
@@ -33,8 +37,7 @@ on-mode-changed = []
     outer.bottom     = 8
 
 # Pin workspaces to monitors so AeroSpace never invents new ones (e.g. 10, 11)
-# when monitors connect. Indices fall back left-to-right: if monitor 3 isn't
-# connected, workspace 7 lands on monitor 2; if 2 isn't connected either, on 1.
+# when monitors connect. Indices fall back left-to-right.
 [workspace-to-monitor-force-assignment]
     1 = 1
     2 = 1
@@ -47,95 +50,95 @@ on-mode-changed = []
     9 = [3, 2, 1]
 
 [mode.main.binding]
-    alt-slash = 'layout tiles horizontal vertical'
-    alt-comma = 'layout accordion horizontal vertical'
+    cmd-alt-ctrl-slash = 'layout tiles horizontal vertical'
+    cmd-alt-ctrl-comma = 'layout accordion horizontal vertical'
 
-    alt-left  = 'focus left'
-    alt-down  = 'focus down'
-    alt-up    = 'focus up'
-    alt-right = 'focus right'
+    cmd-alt-ctrl-left  = 'focus left'
+    cmd-alt-ctrl-down  = 'focus down'
+    cmd-alt-ctrl-up    = 'focus up'
+    cmd-alt-ctrl-right = 'focus right'
 
-    alt-shift-left  = 'move left'
-    alt-shift-down  = 'move down'
-    alt-shift-up    = 'move up'
-    alt-shift-right = 'move right'
+    cmd-alt-ctrl-shift-left  = 'move left'
+    cmd-alt-ctrl-shift-down  = 'move down'
+    cmd-alt-ctrl-shift-up    = 'move up'
+    cmd-alt-ctrl-shift-right = 'move right'
 
-    alt-minus = 'resize smart -50'
-    alt-equal = 'resize smart +50'
+    cmd-alt-ctrl-minus = 'resize smart -50'
+    cmd-alt-ctrl-equal = 'resize smart +50'
 
-    alt-shift-f = 'fullscreen'
+    cmd-alt-ctrl-shift-f = 'fullscreen'
 
     # Toggle the focused window between floating and tiling
-    alt-f = 'layout floating tiling'
+    cmd-alt-ctrl-f = 'layout floating tiling'
 
     # Show keybindings cheatsheet (styled HTML in Chrome app window)
-    alt-k = 'exec-and-forget $HOME/.config/aerospace/show-cheatsheet.sh'
+    cmd-alt-ctrl-k = 'exec-and-forget $HOME/.config/aerospace/show-cheatsheet.sh'
 
     # App launchers — launch if not running, focus if already open
-    alt-a       = 'exec-and-forget open -a "Claude"'
-    alt-shift-a = 'exec-and-forget open -a "ChatGPT"'
-    alt-b       = 'exec-and-forget open -a "Google Chrome"'
-    alt-c       = 'exec-and-forget open -a "Visual Studio Code"'
-    alt-t       = 'exec-and-forget open -a "Ghostty"'
-    alt-o       = 'exec-and-forget open -a "Obsidian"'
-    alt-d       = 'exec-and-forget open -a "Discord"'
-    alt-m       = 'exec-and-forget open -a "Messages"'
-    alt-n       = 'exec-and-forget open -a "Finder"'
-    alt-shift-n = 'exec-and-forget open -a "Notion"'
+    cmd-alt-ctrl-a       = 'exec-and-forget open -a "Claude"'
+    cmd-alt-ctrl-shift-a = 'exec-and-forget open -a "ChatGPT"'
+    cmd-alt-ctrl-b       = 'exec-and-forget open -a "Google Chrome"'
+    cmd-alt-ctrl-c       = 'exec-and-forget open -a "Visual Studio Code"'
+    cmd-alt-ctrl-t       = 'exec-and-forget open -a "Ghostty"'
+    cmd-alt-ctrl-o       = 'exec-and-forget open -a "Obsidian"'
+    cmd-alt-ctrl-d       = 'exec-and-forget open -a "Discord"'
+    cmd-alt-ctrl-m       = 'exec-and-forget open -a "Messages"'
+    cmd-alt-ctrl-n       = 'exec-and-forget open -a "Finder"'
+    cmd-alt-ctrl-shift-n = 'exec-and-forget open -a "Notion"'
 
-    # System Settings panels
-    alt-ctrl-w = 'exec-and-forget open "x-apple.systempreferences:com.apple.wifi-settings-extension"'
-    alt-ctrl-b = 'exec-and-forget open "x-apple.systempreferences:com.apple.BluetoothSettings"'
-    alt-ctrl-u = 'exec-and-forget open "x-apple.systempreferences:com.apple.Sound-Settings.extension"'
-    alt-ctrl-d = 'exec-and-forget open "x-apple.systempreferences:com.apple.Displays-Settings.extension"'
+    # System Settings panels (Caps + Shift + letter)
+    cmd-alt-ctrl-shift-w = 'exec-and-forget open "x-apple.systempreferences:com.apple.wifi-settings-extension"'
+    cmd-alt-ctrl-shift-b = 'exec-and-forget open "x-apple.systempreferences:com.apple.BluetoothSettings"'
+    cmd-alt-ctrl-shift-u = 'exec-and-forget open "x-apple.systempreferences:com.apple.Sound-Settings.extension"'
+    cmd-alt-ctrl-shift-d = 'exec-and-forget open "x-apple.systempreferences:com.apple.Displays-Settings.extension"'
 
     # URL launchers — open in a new Chrome window (AppleScript forces a new
     # window even when Chrome is already running; `--new-window` gets ignored)
-    alt-x = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+    cmd-alt-ctrl-x = '''exec-and-forget osascript -e 'tell application "Google Chrome"
         make new window
         set URL of active tab of front window to "https://x.com"
         activate
     end tell' '''
-    alt-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+    cmd-alt-ctrl-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
         make new window
         set URL of active tab of front window to "https://mail.google.com"
         activate
     end tell' '''
-    alt-y = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+    cmd-alt-ctrl-y = '''exec-and-forget osascript -e 'tell application "Google Chrome"
         make new window
         set URL of active tab of front window to "https://youtube.com"
         activate
     end tell' '''
-    alt-shift-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
+    cmd-alt-ctrl-shift-g = '''exec-and-forget osascript -e 'tell application "Google Chrome"
         make new window
         set URL of active tab of front window to "https://github.com"
         activate
     end tell' '''
 
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-    alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
-    alt-7 = 'workspace 7'
-    alt-8 = 'workspace 8'
-    alt-9 = 'workspace 9'
+    cmd-alt-ctrl-1 = 'workspace 1'
+    cmd-alt-ctrl-2 = 'workspace 2'
+    cmd-alt-ctrl-3 = 'workspace 3'
+    cmd-alt-ctrl-4 = 'workspace 4'
+    cmd-alt-ctrl-5 = 'workspace 5'
+    cmd-alt-ctrl-6 = 'workspace 6'
+    cmd-alt-ctrl-7 = 'workspace 7'
+    cmd-alt-ctrl-8 = 'workspace 8'
+    cmd-alt-ctrl-9 = 'workspace 9'
 
-    alt-shift-1 = 'move-node-to-workspace 1'
-    alt-shift-2 = 'move-node-to-workspace 2'
-    alt-shift-3 = 'move-node-to-workspace 3'
-    alt-shift-4 = 'move-node-to-workspace 4'
-    alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
-    alt-shift-7 = 'move-node-to-workspace 7'
-    alt-shift-8 = 'move-node-to-workspace 8'
-    alt-shift-9 = 'move-node-to-workspace 9'
+    cmd-alt-ctrl-shift-1 = 'move-node-to-workspace 1'
+    cmd-alt-ctrl-shift-2 = 'move-node-to-workspace 2'
+    cmd-alt-ctrl-shift-3 = 'move-node-to-workspace 3'
+    cmd-alt-ctrl-shift-4 = 'move-node-to-workspace 4'
+    cmd-alt-ctrl-shift-5 = 'move-node-to-workspace 5'
+    cmd-alt-ctrl-shift-6 = 'move-node-to-workspace 6'
+    cmd-alt-ctrl-shift-7 = 'move-node-to-workspace 7'
+    cmd-alt-ctrl-shift-8 = 'move-node-to-workspace 8'
+    cmd-alt-ctrl-shift-9 = 'move-node-to-workspace 9'
 
-    alt-tab       = 'workspace-back-and-forth'
-    alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+    cmd-alt-ctrl-tab       = 'workspace-back-and-forth'
+    cmd-alt-ctrl-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-    alt-shift-semicolon = 'mode service'
+    cmd-alt-ctrl-shift-semicolon = 'mode service'
 
 [mode.service.binding]
     esc       = ['reload-config', 'mode main']
@@ -143,10 +146,10 @@ on-mode-changed = []
     f         = ['layout floating tiling', 'mode main']
     backspace = ['close-all-windows-but-current', 'mode main']
 
-    alt-shift-left  = ['join-with left',  'mode main']
-    alt-shift-down  = ['join-with down',  'mode main']
-    alt-shift-up    = ['join-with up',    'mode main']
-    alt-shift-right = ['join-with right', 'mode main']
+    cmd-alt-ctrl-shift-left  = ['join-with left',  'mode main']
+    cmd-alt-ctrl-shift-down  = ['join-with down',  'mode main']
+    cmd-alt-ctrl-shift-up    = ['join-with up',    'mode main']
+    cmd-alt-ctrl-shift-right = ['join-with right', 'mode main']
 
 # ─────────────────────────────────────────────────────────────
 # FUTURE: auto-assign apps to workspaces

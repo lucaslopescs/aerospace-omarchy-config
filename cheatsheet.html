@@ -15,6 +15,7 @@
     --key-bg: #2a2f3a;
     --key-border: #3a4050;
     --heading: #f4a261;
+    --hyper: #a78bfa;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -90,12 +91,23 @@
     font-weight: 500;
     white-space: nowrap;
   }
+  kbd.hyper { color: var(--hyper); }
   .desc {
     color: var(--text);
     flex: 1;
     font-size: 12.5px;
   }
   .span-2 { grid-column: span 2; }
+  .intro {
+    padding: 10px 14px;
+    background: rgba(167,139,250,0.08);
+    border: 1px solid rgba(167,139,250,0.2);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .intro kbd { font-size: 11px; }
   .footer {
     margin-top: 18px;
     text-align: center;
@@ -111,68 +123,72 @@
     <span class="hint">press <kbd>⌘W</kbd> or <kbd>Esc</kbd> to close</span>
   </div>
 
+  <div class="intro">
+    <kbd class="hyper">⇪ Caps</kbd> is the Hyper key — equivalent to <kbd>⌘+⌃+⌥</kbd>. Bindings below read as "Caps + <em>key</em>".
+  </div>
+
   <div class="grid">
     <div class="section">
       <h2>Focus &amp; Move</h2>
-      <div class="row"><span class="desc">Focus direction</span><span class="keys"><kbd>alt</kbd><kbd>←↓↑→</kbd></span></div>
-      <div class="row"><span class="desc">Move window</span><span class="keys"><kbd>alt-shift</kbd><kbd>←↓↑→</kbd></span></div>
-      <div class="row"><span class="desc">Resize smaller / larger</span><span class="keys"><kbd>alt-−</kbd><kbd>alt-=</kbd></span></div>
-      <div class="row"><span class="desc">Float / tile toggle</span><span class="keys"><kbd>alt-f</kbd></span></div>
-      <div class="row"><span class="desc">Fullscreen toggle</span><span class="keys"><kbd>alt-shift-f</kbd></span></div>
+      <div class="row"><span class="desc">Focus direction</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>←↓↑→</kbd></span></div>
+      <div class="row"><span class="desc">Move window</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>←↓↑→</kbd></span></div>
+      <div class="row"><span class="desc">Resize smaller / larger</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>−</kbd> <kbd class="hyper">⇪</kbd><kbd>=</kbd></span></div>
+      <div class="row"><span class="desc">Float / tile toggle</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>F</kbd></span></div>
+      <div class="row"><span class="desc">Fullscreen toggle</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>F</kbd></span></div>
     </div>
 
     <div class="section">
       <h2>Layout</h2>
-      <div class="row"><span class="desc">Tiles (h ↔ v)</span><span class="keys"><kbd>alt-/</kbd></span></div>
-      <div class="row"><span class="desc">Accordion (h ↔ v)</span><span class="keys"><kbd>alt-,</kbd></span></div>
-      <div class="row"><span class="desc">Show this cheatsheet</span><span class="keys"><kbd>alt-k</kbd></span></div>
+      <div class="row"><span class="desc">Tiles (h ↔ v)</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>/</kbd></span></div>
+      <div class="row"><span class="desc">Accordion (h ↔ v)</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>,</kbd></span></div>
+      <div class="row"><span class="desc">Show this cheatsheet</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>K</kbd></span></div>
     </div>
 
     <div class="section">
       <h2>Workspaces</h2>
-      <div class="row"><span class="desc">Switch to workspace N</span><span class="keys"><kbd>alt</kbd><kbd>1-9</kbd></span></div>
-      <div class="row"><span class="desc">Move window to workspace N</span><span class="keys"><kbd>alt-shift</kbd><kbd>1-9</kbd></span></div>
-      <div class="row"><span class="desc">Back to previous workspace</span><span class="keys"><kbd>alt-tab</kbd></span></div>
-      <div class="row"><span class="desc">Send workspace to next monitor</span><span class="keys"><kbd>alt-shift-tab</kbd></span></div>
+      <div class="row"><span class="desc">Switch to workspace N</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>1-9</kbd></span></div>
+      <div class="row"><span class="desc">Move window to workspace N</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>1-9</kbd></span></div>
+      <div class="row"><span class="desc">Back to previous workspace</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇥</kbd></span></div>
+      <div class="row"><span class="desc">Send workspace to next monitor</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>⇥</kbd></span></div>
     </div>
 
     <div class="section">
-      <h2>Service mode <span style="color:var(--muted);font-weight:400">(enter: <kbd>alt-shift-;</kbd>)</span></h2>
+      <h2>Service mode <span style="color:var(--muted);font-weight:400">(enter: <kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>;</kbd>)</span></h2>
       <div class="row"><span class="desc">Reload config &amp; exit</span><span class="keys"><kbd>esc</kbd></span></div>
-      <div class="row"><span class="desc">Reset (flatten) layout</span><span class="keys"><kbd>r</kbd></span></div>
-      <div class="row"><span class="desc">Float/tile toggle</span><span class="keys"><kbd>f</kbd></span></div>
+      <div class="row"><span class="desc">Reset (flatten) layout</span><span class="keys"><kbd>R</kbd></span></div>
+      <div class="row"><span class="desc">Float/tile toggle</span><span class="keys"><kbd>F</kbd></span></div>
       <div class="row"><span class="desc">Close all but current</span><span class="keys"><kbd>⌫</kbd></span></div>
-      <div class="row"><span class="desc">Join window with neighbor</span><span class="keys"><kbd>alt-shift</kbd><kbd>←↓↑→</kbd></span></div>
+      <div class="row"><span class="desc">Join window with neighbor</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>←↓↑→</kbd></span></div>
     </div>
 
     <div class="section span-2">
       <h2>App launchers</h2>
-      <div class="row"><span class="desc">Claude</span><span class="keys"><kbd>alt-a</kbd></span></div>
-      <div class="row"><span class="desc">ChatGPT</span><span class="keys"><kbd>alt-shift-a</kbd></span></div>
-      <div class="row"><span class="desc">Google Chrome</span><span class="keys"><kbd>alt-b</kbd></span></div>
-      <div class="row"><span class="desc">VS Code</span><span class="keys"><kbd>alt-c</kbd></span></div>
-      <div class="row"><span class="desc">Ghostty</span><span class="keys"><kbd>alt-t</kbd></span></div>
-      <div class="row"><span class="desc">Obsidian</span><span class="keys"><kbd>alt-o</kbd></span></div>
-      <div class="row"><span class="desc">Discord</span><span class="keys"><kbd>alt-d</kbd></span></div>
-      <div class="row"><span class="desc">Messages</span><span class="keys"><kbd>alt-m</kbd></span></div>
-      <div class="row"><span class="desc">Finder</span><span class="keys"><kbd>alt-n</kbd></span></div>
-      <div class="row"><span class="desc">Notion</span><span class="keys"><kbd>alt-shift-n</kbd></span></div>
+      <div class="row"><span class="desc">Claude</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>A</kbd></span></div>
+      <div class="row"><span class="desc">ChatGPT</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>A</kbd></span></div>
+      <div class="row"><span class="desc">Google Chrome</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>B</kbd></span></div>
+      <div class="row"><span class="desc">VS Code</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>C</kbd></span></div>
+      <div class="row"><span class="desc">Ghostty</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>T</kbd></span></div>
+      <div class="row"><span class="desc">Obsidian</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>O</kbd></span></div>
+      <div class="row"><span class="desc">Discord</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>D</kbd></span></div>
+      <div class="row"><span class="desc">Messages</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>M</kbd></span></div>
+      <div class="row"><span class="desc">Finder</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>N</kbd></span></div>
+      <div class="row"><span class="desc">Notion</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>N</kbd></span></div>
     </div>
 
     <div class="section">
       <h2>URLs <span style="color:var(--muted);font-weight:400">(new Chrome window)</span></h2>
-      <div class="row"><span class="desc">x.com</span><span class="keys"><kbd>alt-x</kbd></span></div>
-      <div class="row"><span class="desc">Gmail</span><span class="keys"><kbd>alt-g</kbd></span></div>
-      <div class="row"><span class="desc">YouTube</span><span class="keys"><kbd>alt-y</kbd></span></div>
-      <div class="row"><span class="desc">GitHub</span><span class="keys"><kbd>alt-shift-g</kbd></span></div>
+      <div class="row"><span class="desc">x.com</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>X</kbd></span></div>
+      <div class="row"><span class="desc">Gmail</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>G</kbd></span></div>
+      <div class="row"><span class="desc">YouTube</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>Y</kbd></span></div>
+      <div class="row"><span class="desc">GitHub</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>G</kbd></span></div>
     </div>
 
     <div class="section">
       <h2>System Settings</h2>
-      <div class="row"><span class="desc">Wi-Fi</span><span class="keys"><kbd>alt-ctrl-w</kbd></span></div>
-      <div class="row"><span class="desc">Bluetooth</span><span class="keys"><kbd>alt-ctrl-b</kbd></span></div>
-      <div class="row"><span class="desc">Sound</span><span class="keys"><kbd>alt-ctrl-u</kbd></span></div>
-      <div class="row"><span class="desc">Displays</span><span class="keys"><kbd>alt-ctrl-d</kbd></span></div>
+      <div class="row"><span class="desc">Wi-Fi</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>W</kbd></span></div>
+      <div class="row"><span class="desc">Bluetooth</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>B</kbd></span></div>
+      <div class="row"><span class="desc">Sound</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>U</kbd></span></div>
+      <div class="row"><span class="desc">Displays</span><span class="keys"><kbd class="hyper">⇪</kbd><kbd>⇧</kbd><kbd>D</kbd></span></div>
     </div>
   </div>
 
@@ -181,7 +197,6 @@
   </div>
 
   <script>
-    // Close on Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') window.close();
     });
