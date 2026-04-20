@@ -36,21 +36,27 @@ on-mode-changed = []
     outer.top        = 8
     outer.bottom     = 8
 
-# Pin workspaces to monitors.
-#   1            → always on main display (browser lives here)
-#   2, 3         → tertiary display if connected, else secondary, else main (code + AI chats)
-#   4, 5, 6–9    → secondary if connected, else tertiary, else main (notes / chat / spillover)
-# Indices fall back left-to-right: picks the first connected monitor in each list.
+# Pin workspaces to monitors by NAME so reorders/reconnects don't
+# rearrange the layout. Regex is matched against the monitor's name
+# reported by `aerospace list-monitors`.
+#
+#   1       → laptop (Built-in)
+#   2, 3    → external LG (any), fallback laptop
+#   4–9     → external LG (any), fallback laptop
+#
+# With 2 external monitors plugged in, all non-Chrome workspaces
+# currently collapse onto the first matching LG. Tune later if
+# you want the 4–9 group on the other LG specifically.
 [workspace-to-monitor-force-assignment]
-    1 = 1
-    2 = [3, 2, 1]
-    3 = [3, 2, 1]
-    4 = [2, 3, 1]
-    5 = [2, 3, 1]
-    6 = [2, 3, 1]
-    7 = [2, 3, 1]
-    8 = [2, 3, 1]
-    9 = [2, 3, 1]
+    1 = 'Built-in'
+    2 = ['LG', 'Built-in']
+    3 = ['LG', 'Built-in']
+    4 = ['LG', 'Built-in']
+    5 = ['LG', 'Built-in']
+    6 = ['LG', 'Built-in']
+    7 = ['LG', 'Built-in']
+    8 = ['LG', 'Built-in']
+    9 = ['LG', 'Built-in']
 
 [mode.main.binding]
     cmd-alt-ctrl-slash = 'layout tiles horizontal vertical'
